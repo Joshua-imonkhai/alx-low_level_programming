@@ -1,19 +1,41 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
+/**
+ * _strleni - returns the length of a string.
+ * @s: pointer to String
+ * Return: Nothing
+ */
+int _strleni(int *s)
+{
+	int i = 0;
+
+	while (*(s + i) != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 
 /**
- * print_array - a function that prints n elements of an array
- * @a: array name
- * @n: is the number of elements OF the array to be printed
- * Return: a and n inputs
+ * print_array - prints n elements of an array of integers separated by comma,
+ * followed by a space
+ * @a: pointer to int
+ * @n: Numbers of elements to be printed
+ * Return: Nothing
  */
 void print_array(int *a, int n)
 {
-	int i;
+	int len = 0, i = 0;
 
-	for (i = 0; i < (n - 1); i++)
-		printf("%d, ", a[i]);
-		if (i == (n - 1))
-			printf("%d", a[n - 1]);
+	len = _strleni(a);
+	if (len >= n)
+	{
+		for ( ; i < n; i++)
+		{
+			printf("%d", *(a + i));
+			if (i < (n - 1))
+				printf(", ");
+		}
+	}
 	printf("\n");
 }
